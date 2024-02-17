@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/insidelayout">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Dashboard</title>
+</head>
+<body>
+<div layout:fragment="pagetitle">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">  <a th:href="@{/home/homepage}" class="nav-link">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+</div>
+<div  layout:fragment="content">
+    <div class="content">
+    <div class="container-fluid">
+        <h5 class="mb-2 ml-2">Info Box</h5>
+        <div class="row">
+            <div class="d-none d-sm-block col-md-3 col-sm-6 col-4">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Chits</span>
+                        <span class="info-box-number">15</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-4">
+                <div class="info-box">
+                    <span class="d-none d-sm-block info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Members</span>
+                        <span class="info-box-number">40</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-4">
+                <div class="info-box">
+                    <span class="d-none d-sm-block info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Balance</span>
+                        <span class="info-box-number">13,648</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-4">
+                <div class="info-box">
+                    <span class="d-none d-sm-block info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Profit</span>
+                        <span class="info-box-number">93,139</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Activity Table</h3>
+                    </div>
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="text-align:left">#</th>
+                        <th style="text-align:left">Task</th>
+                        <th style="text-align:left">Progress</th>
+                        <th style="text-align:left">Label</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Update software</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">55%</span></td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Clean database</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-warning" style="width: 70%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-warning">70%</span></td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Cron job running</td>
+                        <td>
+                            <div class="progress progress-xs progress-striped active">
+                                <div class="progress-bar bg-primary" style="width: 30%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-primary">30%</span></td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Fix and squish bugs</td>
+                        <td>
+                            <div class="progress progress-xs progress-striped active">
+                                <div class="progress-bar bg-success" style="width: 90%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-success">90%</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+</body>
+</html>

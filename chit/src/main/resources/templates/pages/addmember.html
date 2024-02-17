@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/insidelayout">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/View New Member</title>
+</head>
+<body>
+<div layout:fragment="pagetitle">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Add/View New Member</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+</div>
+<div layout:fragment="content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-4">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Add New Member</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+
+                        <div th:if="${failed != null}" class="alert alert-success alert-dismissible fade show text-center message"
+                             role="alert">
+                            [[${failed}]]
+                            <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div th:if="${message != null}" class="alert alert-warning alert-dismissible fade show text-center message"
+                             role="alert">
+                            [[${message}]]
+                            <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form th:action="@{/home/savemember}" th:object="${member}" method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name</label>
+                                    <p th:if="${#fields.hasErrors('name')}" th:errorclass="alert-danger"
+                                       th:errors="*{name}" />
+                                    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{name}"
+                                           placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Mobile No</label>
+                                    <p th:if="${#fields.hasErrors('membermobileno')}" th:errorclass="alert-danger"
+                                       th:errors="*{membermobileno}" />
+                                    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{membermobileno}"
+                                           placeholder="Enter 10 digit mobile no">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Gaurdian Name</label>
+                                    <p th:if="${#fields.hasErrors('guardian')}" th:errorclass="alert-danger"
+                                       th:errors="*{guardian}" />
+                                    <input type="text" class="form-control" id="gaurdian" th:field="*{guardian}"
+                                           placeholder="Enter 10 digit mobile no">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Gaurdian Mobile No</label>
+                                    <p th:if="${#fields.hasErrors('guardianmobileno')}" th:errorclass="alert-danger"
+                                       th:errors="*{guardianmobileno}" />
+                                    <input type="text" class="form-control" id="gaurdianno" th:field="*{guardianmobileno}"
+                                           placeholder="Enter 10 digit mobile no">
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter Address" th:field="*{address}"></textarea>
+                                </div>
+
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-warning float-right">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Members List</h3>
+                        </div>
+                        <div class="card-body p-0">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th style="text-align:left">#</th>
+                                    <th style="text-align:left">Name</th>
+                                    <th style="text-align:left">Mobile No</th>
+                                    <th style="text-align:left">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="memberlist,iterator : ${memberlist}">
+                                    <td th:text="${iterator.count}"></td>
+                                    <td th:text="${memberlist.name}"></td>
+                                    <td th:text="${memberlist.membermobileno}"></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

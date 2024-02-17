@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/insidelayout">
+<head>
+  <meta charset="UTF-8">
+  <title>Sangam Info</title>
+</head>
+<body>
+<script>
+    $(function() {
+        $("#datepicker").datepicker();
+    });
+</script>
+
+<div layout:fragment="pagetitle">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Sangam Profile Details</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Sangam Info</a></li>
+            <li class="breadcrumb-item active">Profile Details</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+</div>
+<div  layout:fragment="content">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6 offset-md-3">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Profile Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Sangam Name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1"
+                         placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                  <label for="datepicker">Select Date:</label>
+                  <input type="date" class="form-control" id="datepicker"  autocomplete="off"/>
+                </div>
+                <div class="form-group">
+                  <label for="mobile">Mobile No</label>
+                  <input type="password" class="form-control" id="mobile"
+                         placeholder="Enter Mobile no">
+                </div>
+                <div class="form-group">
+                  <label>Address</label>
+                  <textarea class="form-control" rows="3" placeholder="Enter Address"></textarea>
+                </div>
+
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-warning float-right">Reset</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+</script>
+
+</body>
+</html>

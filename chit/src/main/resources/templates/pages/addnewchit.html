@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/insidelayout">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Chit</title>
+
+
+</head>
+<body>
+<div layout:fragment="pagetitle">
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Add New Chit</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Chit</a></li>
+                    <li class="breadcrumb-item active">Add New Chit</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+</div>
+
+<div layout:fragment="content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6 offset-md-3">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">New Chit</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">No of Persons</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                           placeholder="No of Persons">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Amount per Person</label>
+                                    <input type="password" class="form-control" id="exampleInputPasswor1"
+                                           placeholder="Amount per person">
+                                </div>
+                                <div class="form-group">
+                                    <label>Organiser</label>
+                                    <select class="form-control">
+                                        <option>Jahan</option>
+                                        <option>Arun</option>
+                                        <option>Saurav</option>
+                                        <option>Dheena</option>
+                                        <option>Karthick</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Auction Date</label>
+                                    <select class="form-control">
+                                        <option>Full Moon</option>
+                                        <option>New Moon</option>
+                                        <option>1st Sunday</option>
+                                        <option>2nd Sunday</option>
+                                        <option>Last Sunday</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Multiple</label>
+                                    <select class="form-control chosen-select" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>California</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-warning float-right">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
