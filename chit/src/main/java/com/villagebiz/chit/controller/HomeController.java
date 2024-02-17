@@ -82,6 +82,7 @@ public class HomeController {
     public String profileUpdate1(final @Valid Member member, final BindingResult bindingResult,
                                  final Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
+
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.member",bindingResult);
             redirectAttributes.addFlashAttribute("uProfile", member);
             return "pages/addmember";
