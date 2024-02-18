@@ -24,5 +24,10 @@ public class MemberService {
         return memberRepo.findAll();
     }
 
+    public Member getByID(Long id)
+    {
+        return memberRepo.getMemberByID(id);
+    }
+
 
 }

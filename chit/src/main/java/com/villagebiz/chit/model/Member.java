@@ -20,7 +20,7 @@ public class Member implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "memberid")
     @SequenceGenerator(name = "memberid", sequenceName = "public.member_seq", allocationSize = 1)
-    private Long Id;
+    private Long id;
 
     @NotBlank(message = "Please provide a Member Name")
     private String name;

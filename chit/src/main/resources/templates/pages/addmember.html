@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div class="col-md-4">
+                <div  class="col-md-4">
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
@@ -49,31 +49,32 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form th:action="@{/home/savemember}" th:object="${member}" method="post">
+                        <form id="formadd" th:fragmnet="addform" th:action="@{/home/savemember}" th:object="${member}" method="post">
+                            <input type="hidden" id="id" th:field="*{Id}">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
+                                    <label for="name">Name</label>
                                     <p th:if="${#fields.hasErrors('name')}" th:errorclass="alert-danger"
                                        th:errors="*{name}" />
-                                    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{name}"
+                                    <input type="text" class="form-control" id="name" th:field="*{name}"
                                            placeholder="Enter Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Mobile No</label>
+                                    <label for="mobile">Mobile No</label>
                                     <p th:if="${#fields.hasErrors('membermobileno')}" th:errorclass="alert-danger"
                                        th:errors="*{membermobileno}" />
-                                    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{membermobileno}"
+                                    <input type="text" class="form-control" id="mobile" th:field="*{membermobileno}"
                                            placeholder="Enter 10 digit mobile no">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Gaurdian Name</label>
+                                    <label for="gaurdian">Gaurdian Name</label>
                                     <p th:if="${#fields.hasErrors('guardian')}" th:errorclass="alert-danger"
                                        th:errors="*{guardian}" />
                                     <input type="text" class="form-control" id="gaurdian" th:field="*{guardian}"
                                            placeholder="Enter 10 digit mobile no">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Gaurdian Mobile No</label>
+                                    <label for="gaurdianno">Gaurdian Mobile No</label>
                                     <p th:if="${#fields.hasErrors('guardianmobileno')}" th:errorclass="alert-danger"
                                        th:errors="*{guardianmobileno}" />
                                     <input type="text" class="form-control" id="gaurdianno" th:field="*{guardianmobileno}"
@@ -81,7 +82,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter Address" th:field="*{address}"></textarea>
+                                    <textarea id="address" class="form-control" rows="3" placeholder="Enter Address" th:field="*{address}"></textarea>
                                 </div>
 
                                 <!-- /.card-body -->
@@ -104,7 +105,7 @@
                             <h3 class="card-title">All Members List</h3>
                         </div>
                         <div class="card-body p-0">
-                            <table class="table">
+                            <table id="membertable" class="table">
                                 <thead>
                                 <tr>
                                     <th style="text-align:left">#</th>
@@ -119,7 +120,7 @@
                                     <td th:text="${memberlist.name}"></td>
                                     <td th:text="${memberlist.membermobileno}"></td>
                                     <td>
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" th:id="${memberlist.Id}" th:value="${memberlist.Id}" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>

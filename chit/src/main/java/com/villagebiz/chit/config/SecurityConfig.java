@@ -35,6 +35,8 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/home/chithome")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true));
+        http.csrf(csrf -> csrf
+                .disable());
         return http.build();
     }
 

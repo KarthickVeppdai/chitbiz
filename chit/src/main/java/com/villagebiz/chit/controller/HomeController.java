@@ -6,16 +6,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -82,7 +81,6 @@ public class HomeController {
     public String profileUpdate1(final @Valid Member member, final BindingResult bindingResult,
                                  final Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.member",bindingResult);
             redirectAttributes.addFlashAttribute("uProfile", member);
             return "pages/addmember";
@@ -97,6 +95,21 @@ public class HomeController {
             redirectAttributes.addFlashAttribute("uProfile", new Member());
             redirectAttributes.addFlashAttribute("memberlist",memberService.getAllMembers());
             return "redirect:/home/addmember";
+        }
+    }
+
+    @GetMapping("/getMember")
+    @ResponseBody
+    public ResponseEntity<Member> getClrStatus(@RequestParam("id") Long id) {
+        try {
+            Member bean= memberService.getByID(id);
+            if (bean != null) {
+                return new ResponseEntity(bean,null, HttpStatus.OK);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 }
